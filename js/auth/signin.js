@@ -13,7 +13,7 @@ function checkCredentials(){
         const token ="azerty"
         setToken(token);
         //Placer ce token en cookie
-        setCookie(RoleCookieName,"admin",7);
+        setCookie(RoleCookieName,"client",7);
         window.location.replace("/");
 }
 
