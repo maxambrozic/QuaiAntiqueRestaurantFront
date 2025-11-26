@@ -15,6 +15,7 @@ jobs:
         username: quai-antique-restaurant42
         password: ${{ secrets.ftp_password }}
         server-dir: /www/
+        protocol: ftps
         exclude: |
           **/.git*/**
           **/node_modules/bootstrap/scss/**
