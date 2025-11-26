@@ -13,7 +13,7 @@ jobs:
       with:
         server: ftp-quai-antique-restaurant42.alwaysdata.net
         username: quai-antique-restaurant42
-        password: ${{ secrets.ftp_password }}
+        password: ${secrets.ftp_password}
         server-dir: /www/
         protocol: ftps
         exclude: |
