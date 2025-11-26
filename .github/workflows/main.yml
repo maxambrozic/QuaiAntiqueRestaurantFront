@@ -1,30 +1,60 @@
+
 on: push
+
 name: 🚀 Deploy website on push
+
 jobs:
+
   web-deploy:
+
     name: 🎉 Deploy
+
     runs-on: ubuntu-latest
+
     steps:
+
     - name: 🚚 Get latest code
-      uses: actions/checkout@v4
-    - name: Install dependencies
-    uses: actions/setup-node@v2
+
+      uses: actions/checkout@v3
+
+
+    - name: 📂 Install dependencies
+
+      uses: actions/setup-node@v2
+
       with:
-      node-version: '14'  
-        
-    - name:  Install npm dependencies
+
+        node-version: '14'  
+
+
+    - name: 📂 Install npm dependencies
+
       run: npm install
-      
-    - name:  Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+
+    
+
+    - name: 📂 Sync files
+
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+
       with:
-        server: ftp-quai-antique-restaurant42.alwaysdata.net
-        username: quai-antique-restaurant42
-        password: ${secrets.ftp_password}
-        server-dir: /www/
-        protocol: ftps
+
+        server: ftp-quaiantiquerestaurant.alwaysdata.net
+
+        username: quaiantiquerestaurant
+
+        password : ${{ secrets.ftp_password }}
+
         exclude: |
+
+          **/.git*
+
           **/.git*/**
+
           **/node_modules/bootstrap/scss/**
+
           **/node_modules/bootstrap/js/**
-          **/node_modules/bootstrap-icons/icons/** 
+
+          **/node_modules/bootstrap-icons/icons/**  
+
+        server-dir: /www/
